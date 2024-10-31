@@ -38,6 +38,19 @@ MV.NotificacaoApp
     └── S3Util.java                # Utilitário para armazenar dados no S3
 ```
 
+## Padrão de Mensagem
+
+Para que a aplicação processe corretamente as mensagens, envie-as no seguinte formato JSON:
+
+```json
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "phone": "+1-202-555-0123",
+  "message": "This is a sample notification message."
+}
+```
+
 ## Como Executar Local
 
 ### Pré-requisitos
@@ -55,17 +68,13 @@ MV.NotificacaoApp
    cd notificationsCloudApp
    ```
 
+2. **Construir a imagem**
 
-   ```
-
-2. **Construir a imagem **
-
-Passar por processo de BuildDocker a cada pullRequest feita para a main (.github/workflows/docker-build.yml)
+   Passar por processo de BuildDocker a cada pull request feita para a branch `main` (`.github/workflows/docker-build.yml`).
 
    ```bash
    docker run -p 8080:8080 stein465/notifications-app:latest
    ```
-
 
 ## Deploy na Amazon EC2
 
@@ -92,4 +101,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull r
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
 ```
-
