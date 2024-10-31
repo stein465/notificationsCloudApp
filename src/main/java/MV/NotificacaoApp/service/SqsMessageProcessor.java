@@ -37,7 +37,7 @@ public class SqsMessageProcessor {
     @Value("${sqs.queue.url}")
     private String QUEUE_URL;
 
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 1000)
     public void processMessages() {
         ReceiveMessageRequest receiveRequest = ReceiveMessageRequest.builder()
                 .queueUrl(QUEUE_URL)
