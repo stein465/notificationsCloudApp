@@ -97,7 +97,5 @@ Para que a aplicação processe corretamente as mensagens, envie-as no seguinte 
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou pull requests.
 
-## Licença
 
-Este projeto está licenciado sob a [MIT License](LICENSE).
 ```
