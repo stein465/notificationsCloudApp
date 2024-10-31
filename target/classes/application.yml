@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: NotificacaoApp
+
+cloud:
+  aws:
+    region:
+      static: us-east-2
+
+sqs:
+  queue:
+    url: https://sqs.us-east-2.amazonaws.com/024848463050/Notificacao.fifo
+s3:
+  bucket-name: "notification-bucket-123"
+  region: "us-east-2"
