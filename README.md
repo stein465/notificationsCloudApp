@@ -58,11 +58,14 @@ MV.NotificacaoApp
 
    ```
 
-2. **Construir a imagem ** 
+2. **Construir a imagem **
+
+Passar por processo de BuildDocker a cada pullRequest feita para a main (.github/workflows/docker-build.yml)
 
    ```bash
    docker run -p 8080:8080 stein465/notifications-app:latest
    ```
+
 
 ## Deploy na Amazon EC2
 
