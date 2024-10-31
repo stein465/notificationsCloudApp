@@ -1,0 +1,15 @@
+stages:
+  - build
+
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - docker build -t stein465/notifications-app:latest .
+
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+    - docker push stein465/notifications-app:latest
