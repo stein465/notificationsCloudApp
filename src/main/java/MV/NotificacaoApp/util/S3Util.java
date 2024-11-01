@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -22,6 +23,9 @@ public class S3Util {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Value("${s3.bucket-name}")
+    private String  BUCKET_NAME;
+
     public void saveToS3(Map<String, Object> dataToStore) {
         try {
             log.info("Convertendo dados e metadados para String JSON");
@@ -32,7 +36,7 @@ public class S3Util {
             String key = ((Map<String, Object>) dataToStore.get("metadata")).get("message_id").toString();
 
             PutObjectRequest putObjectRequest = PutObjectRequest.builder()
-                    .bucket("notification-bucket-123")
+                    .bucket(BUCKET_NAME)
                     .key(key)
                     .contentType("application/json")
                     .build();
