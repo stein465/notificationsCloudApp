@@ -5,11 +5,10 @@ spring:
 cloud:
   aws:
     region:
-      static: us-east-2
-
+      static: sa-east-1
 sqs:
   queue:
-    url: https://sqs.us-east-2.amazonaws.com/024848463050/Notificacao.fifo
+    url: https://sqs.sa-east-1.amazonaws.com/024848463050/notifications.fifo
 s3:
-  bucket-name: "notification-bucket-123"
-  region: "us-east-2"
+  bucket-name: "notifications-bucket-123"
+  region: "sa-east-1"
